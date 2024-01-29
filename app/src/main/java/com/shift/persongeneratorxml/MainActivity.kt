@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         val data = dbManager.readFromDb()
         for (item in data){
             dbview.append(item)
-            dbview.append(" ")
+            dbview.append("\n ")
         }
     }
     override fun onResume() {
@@ -89,7 +89,19 @@ class MainActivity : AppCompatActivity() {
                                     },
                         person.results[0].email.toString(),
                         person.results[0].dob?.date.toString(),
-                        person.results[0].
+                        buildString {
+                            append(person.results[0].location?.street?.number.toString())
+                            append(" ")
+                            append(person.results[0].location?.street?.name.toString())
+                            append(", ")
+                            append(person.results[0].location?.city.toString())
+                            append(", ")
+                            append(person.results[0].location?.country.toString())
+                        },
+                        person.results[0].phone.toString(),
+                        person.results[0].login?.password.toString(),
+                        person.results[0].picture?.thumbnail.toString(),
+                        person.results[0].picture?.medium.toString(),
                         )
                     val data = dbManager.readFromDb()
                     readInTextView()

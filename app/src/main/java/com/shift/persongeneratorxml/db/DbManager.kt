@@ -50,8 +50,23 @@ class DbManager(val context: Context) {
         )
         with(cursor){
             while (this?.moveToNext()!!){
-                val dataText = cursor?.getString(
-                    cursor.getColumnIndex(DbName.COLUMN_KEY))
+                var dataText = cursor?.getString(cursor.getColumnIndex(DbName.COLUMN_KEY))
+                dataList.add(dataText.toString())
+                dataText = cursor?.getString(cursor.getColumnIndex(DbName.COLUMN_NAME))
+                dataList.add(dataText.toString())
+                dataText = cursor?.getString(cursor.getColumnIndex(DbName.COLUMN_EMAIL))
+                dataList.add(dataText.toString())
+                dataText = cursor?.getString(cursor.getColumnIndex(DbName.COLUMN_BIRTHDAY))
+                dataList.add(dataText.toString())
+                dataText = cursor?.getString(cursor.getColumnIndex(DbName.COLUMN_ADDRESS))
+                dataList.add(dataText.toString())
+                dataText = cursor?.getString(cursor.getColumnIndex(DbName.COLUMN_NUMBER))
+                dataList.add(dataText.toString())
+                dataText = cursor?.getString(cursor.getColumnIndex(DbName.COLUMN_PASSWORD))
+                dataList.add(dataText.toString())
+                dataText = cursor?.getString(cursor.getColumnIndex(DbName.COLUMN_THUMBNAIL))
+                dataList.add(dataText.toString())
+                dataText = cursor?.getString(cursor.getColumnIndex(DbName.COLUMN_PICTURE))
                 dataList.add(dataText.toString())
             }
         }
